@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material";
 import { useContext } from "react";
 import { ProductsContext } from "@/context/ProductsContext";
 import { ProductList } from "@/modules/product/components/ProductList";
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 export default function FavoritesPage() {
   const { favs } = useContext(ProductsContext);
@@ -9,7 +10,7 @@ export default function FavoritesPage() {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: 6 }}>
       <Typography component="h1" variant="h4" textAlign="center">
-        Your Favorites
+        Your Favorites <FavoriteIcon color="disabled" fontSize="medium" />
       </Typography>
 
       <Box marginTop={8}>

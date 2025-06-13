@@ -1,20 +1,20 @@
-import React, { useContext, useEffect, useState } from 'react'
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import HomeIcon from '@mui/icons-material/Home';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import CircularProgress from '@mui/material/CircularProgress';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { useFetchData } from '@/hooks/useFetchData';
-import { Avatar, Badge } from '@mui/material';
-import { ProductsContext } from '@/context/ProductsContext';
+import React, { useContext, useEffect, useState } from "react"
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import HomeIcon from "@mui/icons-material/Home";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import CircularProgress from "@mui/material/CircularProgress";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useFetchData } from "@/hooks/useFetchData";
+import { Avatar, Badge } from "@mui/material";
+import { ProductsContext } from "@/context/ProductsContext";
 
 const url = "https://randomuser.me/api?results=1";
 
@@ -81,7 +81,7 @@ export const Header = () => {
                         <Typography component="span" variant="h6">
                             ${totalPrice}
                         </Typography>
-                        
+
                         <Button color="inherit" onClick={handleClick}>
                             <Badge badgeContent={totalItems} color="secondary">
                                 <ShoppingCartIcon fontSize="large" />
@@ -90,17 +90,26 @@ export const Header = () => {
                     </Box>
 
                     <Menu
-                        id="basic-menu"
                         anchorEl={anchorEl}
                         open={open}
                         onClose={handleClose}
                     >
-                        <MenuItem onClick={handleClose}>
-                            <Link href="/cart">Go to Cart</Link>
+                        <MenuItem
+                            component={Link}
+                            href="/cart"
+                            onClick={handleClose}
+                            sx={{ textDecoration: "underline", textDecorationColor: "blue", fontWeight: "bold" }}
+                        >
+                            Go to Cart
                         </MenuItem>
 
-                        <MenuItem onClick={handleClose}>
-                            <Link href="/favorites">Go to Favorites</Link>
+                        <MenuItem
+                            component={Link}
+                            href="/favorites"
+                            onClick={handleClose}
+                            sx={{ textDecoration: "underline", textDecorationColor: "blue", fontWeight: "bold" }}
+                        >
+                            Go to Favorites
                         </MenuItem>
                     </Menu>
                 </Toolbar>
