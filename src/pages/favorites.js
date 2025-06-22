@@ -10,14 +10,14 @@ export default function FavoritesPage() {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: 6 }}>
       <Typography component="h1" variant="h4" textAlign="center">
-        Your Favorites <FavoriteIcon color="disabled" fontSize="medium" />
+        Your Favorites
       </Typography>
 
-      <Box marginTop={8}>
+      <Box marginTop={5}>
         {
           favs.length === 0 ? (
-            <Typography component="p" variant="h6" textAlign="center" color="gray">
-              You have no favorites
+            <Typography component="p" variant="h6" color="gray" textAlign="center" display="flex" alignItems="center" gap={1}>
+              You have no favorites <FavoriteIcon color="disabled" fontSize="small" />
             </Typography>
           ) : (
             <ProductList products={favs} />

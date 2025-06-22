@@ -1,8 +1,9 @@
 import { Box, Button, Typography } from "@mui/material";
-import DeleteIcon from '@mui/icons-material/Delete';
 import { useContext } from "react";
 import { ProductsContext } from "@/context/ProductsContext";
 import { ProductList } from "@/modules/product/components/ProductList";
+import DeleteIcon from '@mui/icons-material/Delete';
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 export default function CartPage() {
   const { types, totalPrice, cart, handleClear } = useContext(ProductsContext);
@@ -24,13 +25,13 @@ export default function CartPage() {
       <Box sx={{ marginTop: 4 }}>
         {
           cart.length === 0 ? (
-            <Typography component="p" variant="h5" textAlign="center" color="gray">
-              Your cart is empty
+            <Typography component="p" variant="h6" color="gray" textAlign="center" display="flex" alignItems="center" gap={1}>
+              Your cart is empty <ShoppingCartIcon color="disabled" fontSize="medium" />
             </Typography>
           ) : (
-            <Button variant="outlined" onClick={() => handleClear(types.cart)}>
+            <Button variant="outlined" color="error" onClick={() => handleClear(types.cart)}>
               <DeleteIcon sx={{ marginRight: 2 }} />
-              Remove all items from cart
+              Remove all items
             </Button>
           )
         }
